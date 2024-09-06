@@ -1,0 +1,33 @@
+GET http://localhost:8000/user/byterm/es
+
+###
+
+GET http://localhost:8000/user/emre
+
+###
+
+POST http://localhost:8000/auth/register 
+Content-Type: application/json
+
+{
+    "email": "e",
+    "nickname": "emre",
+    "password": "emre",
+    "userID": "e"
+}
+
+###
+
+POST http://localhost:8000/auth/register 
+Content-Type: application/json
+
+{
+    "email": "colin@19studi1os.de",
+    "nickname": "colin",
+    "password": "colin",
+    "userID": "colin123"
+}
+
+###
+
+GET http://localhost:8000/user/checkuseremail/tsfy0i+aqshl8j17abgg@sharklasers.com

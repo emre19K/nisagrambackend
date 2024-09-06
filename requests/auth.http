@@ -1,0 +1,35 @@
+GET http://localhost:8000/testtoken  
+ 
+###
+# @name emreLogin
+POST http://localhost:8000/auth/login 
+Content-Type: application/json 
+
+{
+    "userID": "e",
+    "password": "emre"
+}
+###
+@token = {{emreLogin.response.headers.Authorization}}
+
+POST http://localhost:8000/posts/create/emre
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiJlIiwiaWF0IjoxNzE0OTUzNTI5LCJleHAiOjE3MTQ5NjA3Mjl9.cK28KiHJ1bqBKuSUmkKEVX3je1BpZ8lJUFByeHU--ZE
+Content-Type: application/json
+
+
+{
+    "title": "Mein erster Post!",
+    "imageURL": "BILDURL"
+}
+###
+PATCH http://localhost:8000/posts/66381d5450f73f7b8546eac5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiJlIiwiaWF0IjoxNzE0OTUzNTI5LCJleHAiOjE3MTQ5NjA3Mjl9.cK28KiHJ1bqBKuSUmkKEVX3je1BpZ8lJUFByeHU--ZE
+
+{
+    "author": "TESTasdsa"
+}
+
+###
+DELETE http://localhost:8000/posts/66381d5450f73f7b8546eac5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiJlIiwiaWF0IjoxNzE0OTUzNTI5LCJleHAiOjE3MTQ5NjA3Mjl9.cK28KiHJ1bqBKuSUmkKEVX3je1BpZ8lJUFByeHU--ZE

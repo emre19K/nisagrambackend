@@ -1,0 +1,12 @@
+
+GET http://localhost:8000/posts
+
+### 
+POST http://localhost:8000/posts/create/emre
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiJlbXJlMjMiLCJpYXQiOjE3MTQ1MTM5MjIsImV4cCI6MTcxNDUyMTEyMn0.7JxGrbE11Mf20jlaMjvMrgHWqwYdG7Py33-C8aoAT2Q
+
+{
+    "title": "Mein erster Post!",
+    "imageURL": "BILDURL"
+}
