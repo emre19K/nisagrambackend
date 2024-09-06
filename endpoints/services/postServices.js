@@ -2,7 +2,7 @@ const Post = require("../models/postModel");
 const User = require("../models/userModel");
 require("dotenv").config();
 
-const ENV = process.env.ENV
+// const ENV = process.env.ENV;
 
 // Function to find posts from a given user
 const findFromGivenUser = async (req) => {
@@ -189,9 +189,9 @@ const createPost = async (req) => {
     let image = process.env.BASE_URL + "/static/posts/" + req.file.filename;
     let title = req.body.title;
 
-    let tags;
+    // let tags;
     let newPost;
-
+    /*
     if (ENV) {
       newPost = new Post({
         title: title,
@@ -208,7 +208,12 @@ const createPost = async (req) => {
         tags: tags, // Save the tags to the post
       });
     }
-
+    */
+    newPost = new Post({
+      title: title,
+      image: image,
+      author: authenticatedId,
+    });
     await newPost.save();
   } catch (error) {
     throw new Error(error.message);

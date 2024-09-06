@@ -2,10 +2,10 @@ const multer = require("multer");
 const path = require("path");
 const sharp = require("sharp");
 const fsPromises = require("fs").promises;
-const ollama = require("ollama").default; // Correct import for default export
+//const ollama = require("ollama").default; // Correct import for default export
 require("dotenv").config();
 
-const ENV = process.env.ENV;
+// const ENV = process.env.ENV;
 
 // Define storage for posts
 const storagePosts = multer.diskStorage({
@@ -45,6 +45,15 @@ const resizeImage = async (req, res, next) => {
   }
 };
 
+/*
+
+NICHT NÖTIG FÜR BEWERBUNGEN! EINRICHTUNG ZU KOMPLIZIERT!
+WENN SIE DAS LESEN UND DENNOCH NEUGIERIG SIND -> KOMMENTAR ENTFERNEN -> OLLAMA INSTALLIEREN -> LLAVA INSTALLIEREN
+AUCH WICHTIG DIE KOMMENTARE BEI endpoints/services/postServices.js ENTFERNEN! 
+ZEILEN: 5; 192; 194-211;
+ALLES AUF DEM EIGENEN RECHNER
+ES WIRD EINE GRAFIKKARTE BENÖTIGT FÜR DIE BILDANALYSE! OHNE GRAKA -> SEHR LANGE BEARBEITUNGSZEITEN!
+
 // Function to analyze a single image using the Ollama API
 const analyzeImage = async (imageBuffer) => {
   try {
@@ -83,6 +92,7 @@ const preprocessImage = async (imagePath) => {
 
 // Middleware to add image tags using the Ollama API
 const addImageTags = async (req, res, next) => {
+
   if (!ENV) {
     if (!req.file) {
       return next(new Error("Bitte fügen Sie eine Foto hinzu."));
@@ -100,6 +110,11 @@ const addImageTags = async (req, res, next) => {
     next();
   }
 };
+*/
+
+function addImageTags(req, res, next){
+  next();
+}
 
 // Define storage for profile pictures
 const storageProfile = multer.diskStorage({
